@@ -25,6 +25,9 @@
 
       <!-- Category Filter -->
       <div class="search-section">
+        <label for="categoryFilter" class="visually-hidden"
+          >Choose a product category</label
+        >
         <select id="categoryFilter">
           <option value="" disabled selected>Choose a Category</option>
           <option value="cleanser">Cleansers</option>
@@ -41,17 +44,10 @@
         <!-- New: product search input (filters by name/brand/description) -->
         <input
           id="productSearch"
+          class="product-search"
           type="search"
           placeholder="Search products by name or keyword…"
           aria-label="Search products"
-          style="
-            margin-left: 12px;
-            padding: 12px;
-            font-size: 16px;
-            width: 320px;
-            border: 2px solid #000;
-            border-radius: 8px;
-          "
         />
       </div>
 
@@ -66,11 +62,7 @@
           <button id="generateRoutine" class="generate-btn">
             <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
           </button>
-          <button
-            id="clearSelections"
-            class="generate-btn"
-            style="background: #ff6b6b"
-          >
+          <button id="clearSelections" class="clear-btn">
             <i class="fa-solid fa-trash-can"></i> Clear Selections
           </button>
         </div>

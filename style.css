@@ -5,12 +5,22 @@
   padding: 0;
 }
 
+:root {
+  --loreal-red: #ff003b;
+  --loreal-gold: #e3a535;
+  --bg: #fbfaf9;
+  --panel: #ffffff;
+  --muted: #767676;
+  --soft-shadow: 0 8px 22px rgba(15, 15, 15, 0.06);
+}
+
 /* —— body + fonts —— */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  color: #222;
   display: flex;
   justify-content: center;
+  background: linear-gradient(180deg, #fffdfa 0%, var(--bg) 100%);
 }
 
 .page-wrapper {
@@ -21,19 +31,21 @@ body {
 /* header */
 .site-header {
   text-align: center;
-  padding-top: 50px;
-  padding-bottom: 10px;
+  padding-top: 42px;
+  padding-bottom: 18px;
+  margin-bottom: 6px;
 }
 
 .logo {
-  width: 250px;
-  margin-bottom: 15px;
+  width: 220px;
+  margin-bottom: 12px;
 }
 
 .site-title {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--muted);
 }
 
 /* category filter */
@@ -44,26 +56,47 @@ body {
 
 .search-section select {
   width: 100%;
-  padding: 16px;
-  font-size: 18px;
-  border: 2px solid #000;
-  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
   cursor: pointer;
-  background-color: white;
-  font-weight: 500;
+  background-color: var(--panel);
+  font-weight: 600;
+  box-shadow: var(--soft-shadow);
 }
 
 .search-section select:focus {
   outline: none;
-  border-color: #666;
+  border-color: var(--loreal-gold);
+  box-shadow: 0 6px 18px rgba(227, 165, 53, 0.12);
+}
+
+/* product search input — centralized style instead of inline */
+.product-search {
+  margin-left: 12px;
+  padding: 12px 14px;
+  font-size: 16px;
+  width: 320px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  background: var(--panel);
+  box-shadow: var(--soft-shadow);
+}
+
+.product-search:focus {
+  outline: none;
+  border-color: var(--loreal-red);
+  box-shadow: 0 8px 20px rgba(255, 0, 59, 0.08);
 }
 
 /* chat section */
 .chatbox {
   margin: 40px 0;
-  border: 2px solid #000;
-  border-radius: 8px;
-  padding: 26px;
+  border-radius: 12px;
+  padding: 28px;
+  background: var(--panel);
+  box-shadow: var(--soft-shadow);
 }
 
 .chatbox h2 {
@@ -79,8 +112,8 @@ body {
   padding: 16px;
   height: 320px; /* slightly larger to feel like a chat */
   overflow-y: auto;
-  background: #fafafa;
-  border-radius: 6px;
+  background: linear-gradient(180deg, #fff 0%, #fbfbfb 100%);
+  border-radius: 10px;
 }
 
 /* single message wrapper */
@@ -110,10 +143,10 @@ body {
 
 /* avatar for assistant */
 .message-assistant .avatar {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: #000;
+  background: var(--loreal-red);
   color: #fff;
   display: flex;
   align-items: center;
@@ -134,18 +167,19 @@ body {
 
 /* assistant bubble: white panel with border (matches page) */
 .message-assistant .bubble {
-  background: #fff;
+  background: var(--panel);
   color: #222;
-  border: 1px solid #e6e6e6;
-  border-radius: 16px 16px 16px 6px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px 18px 18px 8px;
 }
 
 /* user bubble: dark filled bubble */
 .message-user .bubble {
-  background: #000;
+  background: linear-gradient(90deg, var(--loreal-red) 0%, #d80038 100%);
   color: #fff;
-  border-radius: 16px 16px 6px 16px;
+  border-radius: 18px 18px 8px 18px;
   text-align: right;
+  box-shadow: 0 10px 26px rgba(255, 0, 59, 0.12);
 }
 
 /* ensure <pre> content inside bubble looks good */
@@ -161,7 +195,7 @@ body {
 .meta {
   margin-top: 6px;
   font-size: 11px;
-  color: #888;
+  color: var(--muted);
   display: block;
 }
 
@@ -182,7 +216,7 @@ body {
   width: 100%;
   text-align: center;
   padding: 40px;
-  color: #666;
+  color: var(--muted);
   font-size: 18px;
 }
 
@@ -197,38 +231,42 @@ body {
   flex: 1;
   padding: 12px;
   font-size: 18px;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: var(--panel);
 }
 
 .chat-form input:focus {
   outline: none;
-  border-bottom-color: #000;
+  border-color: var(--loreal-gold);
+  box-shadow: 0 8px 20px rgba(227, 165, 53, 0.08);
 }
 
 .chat-form button {
   font-size: 18px;
-  background: #000;
+  background: var(--loreal-red);
   color: #fff;
   border: none;
   padding: 12px;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  border-radius: 12px;
 }
 
 .chat-form button:hover {
-  background: #666666;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 0, 59, 0.12);
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: 3px solid rgba(255, 0, 59, 0.12);
+  outline-offset: 3px;
 }
 
 /* visually hidden */
@@ -249,7 +287,7 @@ body {
   margin: 60px 0 40px;
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: var(--muted);
 }
 
 .site-footer nav {
@@ -258,7 +296,7 @@ body {
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
+  color: #222;
   text-decoration: none;
 }
 
@@ -276,14 +314,16 @@ body {
 
 .product-card {
   flex: 0 1 calc(33.333% - 14px);
-  border: 1px solid #ccc;
-  padding: 15px;
-  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 14px;
+  border-radius: 12px;
   display: flex;
-  gap: 15px;
+  gap: 14px;
   min-height: 160px;
   position: relative;
   overflow: hidden; /* overlay stays within the same box */
+  background: linear-gradient(180deg, #fff 0%, #fffbfb 100%);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .product-card img {
@@ -315,11 +355,11 @@ body {
 .product-desc {
   position: absolute;
   inset: 0; /* cover entire card */
-  background: #fff; /* match page: white panel */
+  background: var(--panel); /* match page: white panel */
   color: #222; /* dark text to match page */
   padding: 16px;
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.45;
   overflow-y: auto;
   opacity: 0;
   transform: translateY(6px);
@@ -329,9 +369,9 @@ body {
   text-align: left;
   display: flex;
   align-items: flex-start; /* content flows from top */
-  border: 2px solid #000; /* strong page border consistent with other panels */
-  border-radius: 4px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06); /* subtle shadow like other elements */
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  box-shadow: var(--soft-shadow); /* subtle shadow like other elements */
 }
 
 /* reveal overlay on hover and focus, enable interactions so users can scroll/select text */
@@ -343,6 +383,40 @@ body {
   pointer-events: auto;
 }
 
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(20, 20, 20, 0.06);
+}
+
+/* allow programmatic opening of the description (useful on touch/small screens) */
+.product-card.open .product-desc {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* details button (visible on small screens) */
+.details-btn {
+  display: none;
+  margin-top: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: transparent;
+  cursor: pointer;
+}
+.details-btn:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+/* selected product visual state */
+.product-card.selected {
+  border: 2px solid var(--loreal-red);
+  box-shadow: 0 18px 32px rgba(255, 0, 59, 0.08);
+  transform: translateY(-4px);
+}
+
 /* ensure overlay is usable on small screens */
 @media (max-width: 480px) {
   .product-desc {
@@ -351,12 +425,55 @@ body {
   }
 }
 
+/* Small / touch devices: show details button and make overlay toggleable */
+@media (max-width: 700px) {
+  .details-btn {
+    display: inline-block;
+  }
+  .details-btn {
+    float: right;
+    margin-top: 0;
+  }
+  .product-desc {
+    position: relative;
+    inset: auto;
+    display: none; /* hidden until user opens */
+    opacity: 1;
+    transform: none;
+    box-shadow: none;
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+  .product-card.open .product-desc {
+    display: block;
+  }
+  /* On small screens stack the card and make the image fill the card width */
+  .product-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .product-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover; /* fill the image box */
+    border-radius: 8px;
+  }
+  .product-card .product-info {
+    padding-top: 10px;
+  }
+}
+
 /* selected products */
 .selected-products {
   margin: 40px 0;
   padding: 20px;
-  border: 2px solid #000;
-  border-radius: 8px;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    rgba(227, 165, 53, 0.04) 0%,
+    rgba(255, 0, 59, 0.02) 100%
+  );
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .selected-products h2 {
@@ -377,17 +494,63 @@ body {
   font-size: 18px;
   font-weight: 500;
   color: #fff;
-  background: #000;
+  background: linear-gradient(90deg, var(--loreal-red) 0%, #d40036 100%);
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
 .generate-btn:hover {
-  background: #666;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(255, 0, 59, 0.12);
 }
 
 .generate-btn i {
   margin-right: 8px;
+}
+
+/* clear button variant */
+.clear-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--loreal-red);
+  background: transparent;
+  border: 2px solid var(--loreal-red);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+.clear-btn:hover {
+  background: rgba(255, 0, 59, 0.06);
+  transform: translateY(-2px);
+}
+
+/* small tiles inside selected-products */
+.selected-tile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+.selected-tile img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.remove-btn {
+  background: transparent;
+  color: var(--loreal-red);
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-weight: 700;
 }

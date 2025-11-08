@@ -203,6 +203,9 @@ function displayProducts(products) {
       <div class="product-info">
         <h3>${escapeHtml(product.name)}</h3>
         <p>${escapeHtml(product.brand || "")}</p>
+        <button class="details-btn" aria-expanded="false" aria-controls="desc-${
+          product._key
+        }">Details</button>
       </div>
 
       <!-- full-card description overlay (covers whole card via CSS) -->
@@ -227,7 +230,9 @@ function displayProducts(products) {
   // attach click handlers to toggle selection
   const cards = productsContainer.querySelectorAll(".product-card");
   cards.forEach((card) => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+      // If the click came from the details button, ignore — that has its own handler
+      if (e.target.closest && e.target.closest(".details-btn")) return;
       const key = card.getAttribute("data-key");
       // find product data from normalized list
       const product = normalized.find((p) => p._key === key);
@@ -264,6 +269,18 @@ function displayProducts(products) {
       const desc = card.querySelector(".product-desc");
       if (desc) desc.setAttribute("aria-hidden", "true");
     });
+
+    // hook up the details button to toggle the overlay on touch/small screens
+    const detailsBtn = card.querySelector(".details-btn");
+    if (detailsBtn) {
+      detailsBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation(); // don't toggle selection
+        const desc = card.querySelector(".product-desc");
+        const isOpen = card.classList.toggle("open");
+        detailsBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        if (desc) desc.setAttribute("aria-hidden", isOpen ? "false" : "true");
+      });
+    }
   });
 
   // refresh the Selected Products UI after rendering
